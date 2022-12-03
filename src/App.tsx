@@ -1,7 +1,39 @@
 import React from 'react';
+import Header from './components/header/Header';
 
 function App() {
-  return <div>Hello world!</div>;
+  return (
+    <div>
+      <Header />
+
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+      <div>a</div>
+    </div>
+  );
 }
 
 export default App;

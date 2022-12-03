@@ -1,0 +1,52 @@
+@import "../../styles/vars";
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    position: relative;
+    vertical-align: middle;
+    font-family: "Rubik One", sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    color: #fff;
+    text-transform: lowercase;
+    background-color: $light-gray;
+
+    &::before {
+        position: absolute;
+        content: "";
+        bottom: -4px;
+        height: 4px;
+        width: 100%;
+        left: 2px;
+        transform: skewX(45deg);
+        background-color: darken($light-gray, 20%);
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        right: -4px;
+        height: 100%;
+        width: 4px;
+        bottom: -2px;
+        transform: skewY(45deg);
+        background-color: darken($light-gray, 30%);
+    }
+
+    &:active {
+        margin-left: 2px;
+        margin-top: 2px;
+        &::before {
+            bottom: 0px;
+            height: 0px;
+            left: 0px;
+        }
+
+        &::after {
+            right: 0px;
+            width: 0px;
+            bottom: 0px;
+        }
+    }
+}

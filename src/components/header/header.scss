@@ -1,0 +1,13 @@
+@import "../../styles/vars";
+
+.header {
+    border-bottom: 1px solid $light-gray;
+    height: 64px;
+    left: 0;
+    right: 0;
+    padding: 0 20px;
+    position: fixed;
+    background: $dark-gray;
+    display: flex;
+    align-items: center;
+}

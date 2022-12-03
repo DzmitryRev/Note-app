@@ -1,0 +1,17 @@
+@import "../../styles/mixins";
+
+.burger {
+    width: 18px;
+    height: 12px;
+    position: relative;
+    cursor: pointer;
+    & span {
+        @include burgerLine($top: 0);
+        &::before {
+            @include burgerLine($top: 5px);
+        }
+        &::after {
+            @include burgerLine($top: 10px);
+        }
+    }
+}

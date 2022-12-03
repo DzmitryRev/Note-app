@@ -1,0 +1,10 @@
+@mixin burgerLine($top) {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+    border-radius: 5px;
+    top: $top;
+}
