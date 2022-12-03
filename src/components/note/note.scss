@@ -1,0 +1,32 @@
+@import "../../styles/vars";
+
+%ellipsisText {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: default;
+    margin: 0 0 5px;
+}
+
+.note {
+    margin: 0 auto 20px;
+    padding: 10px;
+    max-width: 600px;
+    border: 1px solid $light-gray;
+    border-radius: 7px;
+    color: #fff;
+    &__description {
+        @extend %ellipsisText;
+        font-size: 16px;
+    }
+    &__title {
+        @extend %ellipsisText;
+        font-size: 24px;
+    }
+    &__footer {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 10px;
+        justify-content: end;
+    }
+}
