@@ -1,5 +1,10 @@
 import React from 'react';
+// import { useParams } from 'react-router-dom';
 
 export default function NotePage() {
-  return <div>Note page</div>;
+//   const { id } = useParams();
+
+  return (
+    <div />
+  );
 }

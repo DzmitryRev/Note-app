@@ -1,9 +1,12 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { PropsWithChildren } from 'react';
 import './button.scss';
 
-export default function Button({ children }: PropsWithChildren<React.ComponentProps<'button'>>) {
+interface IButtonProps extends React.ComponentProps<'button'> {}
+
+export default function Button({ children, ...attributes }: PropsWithChildren<IButtonProps>) {
   return (
-    <button className="button" type="button">
+    <button className="button" {...attributes} type="button">
       {children}
     </button>
   );

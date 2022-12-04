@@ -1,0 +1,14 @@
+@import "../../styles/vars";
+
+.tag {
+    padding: 5px;
+    margin: 0 5px 5px 0;
+    background: rgba($light-gray, 0.6);
+    border-radius: 10px;
+    cursor: default;
+    color: #fff;
+}
+
+.selected {
+    border: 1px solid #fff;
+}
