@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-import React, { useState } from 'react';
+import React from 'react';
 import Button from '../button/Button';
 import Tag from '../tag/Tag';
 import './sidebar.scss';
@@ -7,23 +7,26 @@ import './sidebar.scss';
 interface ISidebarProps {
   isOpen: boolean;
   tags: string[];
+  selectedNotes: string[];
+  setSelectedNotes: (value: string[]) => void;
 }
 
-export default function Sidebar({ isOpen, tags }: ISidebarProps) {
-  const [selectedNote, setSelectedNote] = useState<string[]>([]);
-
+export default function Sidebar({
+  isOpen, tags, selectedNotes, setSelectedNotes,
+}: ISidebarProps) {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       {tags.map((tag) => (
         <Tag
+          key={tag}
           onClick={() => {
-            if (selectedNote.includes(tag)) {
-              setSelectedNote(selectedNote.filter((item) => item !== tag));
+            if (selectedNotes.includes(tag)) {
+              setSelectedNotes(selectedNotes.filter((item) => item !== tag));
             } else {
-              setSelectedNote([...selectedNote, tag]);
+              setSelectedNotes([...selectedNotes, tag]);
             }
           }}
-          isSelected={selectedNote.includes(tag)}
+          isSelected={selectedNotes.includes(tag)}
         >
           {tag}
         </Tag>
@@ -31,7 +34,7 @@ export default function Sidebar({ isOpen, tags }: ISidebarProps) {
       <div className="sidebar__clean-button-container">
         <Button
           onClick={() => {
-            setSelectedNote([]);
+            setSelectedNotes([]);
           }}
         >
           clean

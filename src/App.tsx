@@ -4,10 +4,12 @@ import Header from './components/header/Header';
 import { INoteStorage } from './models/NoteModel';
 import MainPage from './pages/main/MainPage';
 import NotePage from './pages/note/NotePage';
+import { filter } from './services/filter/filter';
 import NoteStorage from './storage/NoteStorage';
 
 function App() {
   const [noteStorage, setNoteStorage] = useState<INoteStorage | null>();
+  const [selectedNotes, setSelectedNotes] = useState<string[]>([]);
   useEffect(() => {
     setNoteStorage(NoteStorage.getNotes());
   }, []);
@@ -17,14 +19,20 @@ function App() {
   };
   return (
     <div>
-      <Header tags={noteStorage?.tags || []} />
+      <Header
+        tags={noteStorage?.tags || []}
+        selectedNotes={selectedNotes}
+        setSelectedNotes={(value: string[]) => {
+          setSelectedNotes(value);
+        }}
+      />
       <div className="container">
         <Routes>
           <Route
             path="/"
             element={(
               <MainPage
-                notes={noteStorage?.notes || []}
+                notes={filter(noteStorage?.notes || [], selectedNotes)}
                 removeNote={(noteId: number) => {
                   removeNote(noteId);
                 }}

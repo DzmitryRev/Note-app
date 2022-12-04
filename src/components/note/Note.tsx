@@ -21,7 +21,7 @@ export default function Note({
       <p className="note__description">{description}</p>
       <div className="note__tags-container">
         {tags.map((tag) => (
-          <Tag>{tag}</Tag>
+          <Tag key={tag}>{tag}</Tag>
         ))}
       </div>
       <footer className="note__footer">

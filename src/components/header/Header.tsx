@@ -6,9 +6,11 @@ import './header.scss';
 
 interface IHeaderProps {
   tags: string[];
+  selectedNotes: string[];
+  setSelectedNotes: (value: string[]) => void;
 }
 
-export default function Header({ tags }: IHeaderProps) {
+export default function Header({ tags, selectedNotes, setSelectedNotes }: IHeaderProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <>
@@ -24,6 +26,8 @@ export default function Header({ tags }: IHeaderProps) {
       <Sidebar
         isOpen={isSidebarOpen}
         tags={tags}
+        selectedNotes={selectedNotes}
+        setSelectedNotes={setSelectedNotes}
       />
     </>
   );
