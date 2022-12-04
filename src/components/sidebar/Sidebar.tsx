@@ -1,21 +1,17 @@
 /* eslint-disable linebreak-style */
-import React, { useEffect, useState } from 'react';
-import NoteStorage from '../../storage/NoteStorage';
+import React, { useState } from 'react';
 import Button from '../button/Button';
 import Tag from '../tag/Tag';
 import './sidebar.scss';
 
 interface ISidebarProps {
   isOpen: boolean;
+  tags: string[];
 }
 
-export default function Sidebar({ isOpen }: ISidebarProps) {
-  const [tags, setTags] = useState<string[]>([]);
+export default function Sidebar({ isOpen, tags }: ISidebarProps) {
   const [selectedNote, setSelectedNote] = useState<string[]>([]);
-  useEffect(() => {
-    const tagsInStorage = NoteStorage.getNotes();
-    setTags(tagsInStorage?.tags || []);
-  }, []);
+
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
       {tags.map((tag) => (

@@ -9,10 +9,11 @@ interface INoteProps {
   title: string;
   description: string;
   tags: string[];
+  removeNote: (noteId: number) => void;
 }
 
 export default function Note({
-  title, description, tags, id,
+  title, description, tags, id, removeNote,
 }: INoteProps) {
   return (
     <article className="note">
@@ -25,7 +26,13 @@ export default function Note({
       </div>
       <footer className="note__footer">
         <ButtonLink to={`/${id}`}>open</ButtonLink>
-        <Button>remove</Button>
+        <Button
+          onClick={() => {
+            removeNote(id);
+          }}
+        >
+          remove
+        </Button>
       </footer>
     </article>
   );

@@ -1,23 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Note from '../../components/note/Note';
-import { INoteStorage } from '../../models/NoteModel';
-import NoteStorage from '../../storage/NoteStorage';
+import { INote } from '../../models/NoteModel';
 
-export default function MainPage() {
-  const [notes, setNotes] = useState<INoteStorage | null>();
-  useEffect(() => {
-    setNotes(NoteStorage.getNotes());
-  }, []);
+interface IMainPageProps {
+  notes: INote[];
+  removeNote: (noteId: number) => void;
+}
+
+export default function MainPage({ notes, removeNote }: IMainPageProps) {
   return (
     <div>
       {notes
-        && notes.notes.map((item) => (
+        && notes.map((item) => (
           <Note
             key={item.id}
             title={item.title}
             description={item.description}
             id={item.id}
             tags={item.tags}
+            removeNote={(noteId: number) => {
+              removeNote(noteId);
+            }}
           />
         ))}
     </div>

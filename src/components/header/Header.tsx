@@ -4,7 +4,11 @@ import Button from '../button/Button';
 import Sidebar from '../sidebar/Sidebar';
 import './header.scss';
 
-export default function Header() {
+interface IHeaderProps {
+  tags: string[];
+}
+
+export default function Header({ tags }: IHeaderProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <>
@@ -19,6 +23,7 @@ export default function Header() {
       </header>
       <Sidebar
         isOpen={isSidebarOpen}
+        tags={tags}
       />
     </>
   );
