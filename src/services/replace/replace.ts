@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 export function replaceTag(data: string) {
   const result = data.split(' ').map((item) => {
     if (item.trim().match(/\B(#[a-zA-Z]+\b)(?!;)/)) {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Burger from '../burger/Burger';
 import Button from '../button/Button';
+import ButtonLink from '../link/Link';
 import Sidebar from '../sidebar/Sidebar';
 import './header.scss';
 
@@ -22,6 +23,7 @@ export default function Header({ tags, selectedNotes, setSelectedNotes }: IHeade
         >
           <Burger />
         </Button>
+        <ButtonLink to="/new">add new note</ButtonLink>
       </header>
       <Sidebar
         isOpen={isSidebarOpen}

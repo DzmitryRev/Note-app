@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 export function setSelection(ref: React.MutableRefObject<HTMLDivElement | undefined>) {
   const range = new Range();
 

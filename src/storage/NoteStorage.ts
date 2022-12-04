@@ -40,7 +40,7 @@ export default class NoteStorage {
     localStorage.setItem(this.storageName, JSON.stringify(notes));
   }
 
-  static removeNote(noteId: number): void {
+  static removeNote(noteId: string): void {
     if (!localStorage.getItem(this.storageName)) return;
     const notes: INoteStorage = JSON.parse(localStorage.getItem(this.storageName) || '');
     const removedNote = notes.notes.find((item) => item.id === noteId);

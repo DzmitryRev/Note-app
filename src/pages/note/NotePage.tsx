@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React, { useEffect } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 import Button from '../../components/button/Button';
 import ButtonLink from '../../components/link/Link';
 import { getTags, replaceTag } from '../../services/replace/replace';
@@ -23,7 +24,7 @@ export default function NotePage({ loadStorage }: INotePageProps) {
 
   useEffect(() => {
     if (isEditMode && id) {
-      const editedNote = NoteStorage.getNotes()?.notes.find((note) => note.id === +id);
+      const editedNote = NoteStorage.getNotes()?.notes.find((note) => note.id === id);
       if (editedNote) {
         setInputValue(editedNote.description);
       }
@@ -54,7 +55,7 @@ export default function NotePage({ loadStorage }: INotePageProps) {
           onClick={() => {
             if (isEditMode && id) {
               NoteStorage.updateNote({
-                id: +id,
+                id: uuidv4(),
                 description: inputValue,
                 tags: [...getTags(inputValue)],
               });
@@ -62,7 +63,7 @@ export default function NotePage({ loadStorage }: INotePageProps) {
               navigate('/');
             } else {
               NoteStorage.addNote({
-                id: 10,
+                id: uuidv4(),
                 description: inputValue,
                 tags: [...getTags(inputValue)],
               });

@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { PropsWithChildren } from 'react';
 import './tag.scss';

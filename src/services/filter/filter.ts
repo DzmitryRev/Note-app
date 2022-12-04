@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-
 import { INote } from '../../models/NoteModel';
 
 export function filter(notes: INote[], tags: string[]) {

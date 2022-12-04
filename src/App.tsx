@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     loadStorage();
   }, []);
-  const removeNote = (noteId: number) => {
+  const removeNote = (noteId: string) => {
     NoteStorage.removeNote(noteId);
     loadStorage();
   };
@@ -36,7 +36,7 @@ function App() {
             element={(
               <MainPage
                 notes={filter(noteStorage?.notes || [], selectedNotes)}
-                removeNote={(noteId: number) => {
+                removeNote={(noteId: string) => {
                   removeNote(noteId);
                 }}
               />

@@ -5,10 +5,10 @@ import Tag from '../tag/Tag';
 import './note.scss';
 
 interface INoteProps {
-  id: number;
+  id: string;
   description: string;
   tags: string[];
-  removeNote: (noteId: number) => void;
+  removeNote: (noteId: string) => void;
 }
 
 export default function Note({

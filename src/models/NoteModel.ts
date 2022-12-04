@@ -4,7 +4,7 @@ export interface INoteStorage {
 }
 
 export interface INote {
-  id: number;
+  id: string;
   description: string;
   tags: string[];
 }
