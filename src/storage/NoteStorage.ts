@@ -54,9 +54,7 @@ export default class NoteStorage {
   }
 
   static updateNote(note: INote): void {
-    const {
-      id, title, description, tags,
-    } = note;
+    const { id, description, tags } = note;
     if (!localStorage.getItem(this.storageName)) return;
     const notes: INoteStorage = JSON.parse(localStorage.getItem(this.storageName) || '');
     const newStorage: INoteStorage = {
@@ -64,7 +62,6 @@ export default class NoteStorage {
         if (item.id === id) {
           return {
             id,
-            title,
             description,
             tags,
           };

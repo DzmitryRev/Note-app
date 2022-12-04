@@ -1,0 +1,25 @@
+@import "../../styles/vars";
+
+.form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 40px;
+    &__description-input {
+        background: #fff;
+        font-size: 18px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        height: 300px;
+        padding: 5px;
+        overflow-y: scroll;
+    }
+    &__title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    &__title {
+        color: #fff;
+    }
+}

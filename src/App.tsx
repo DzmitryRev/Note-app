@@ -10,12 +10,15 @@ import NoteStorage from './storage/NoteStorage';
 function App() {
   const [noteStorage, setNoteStorage] = useState<INoteStorage | null>();
   const [selectedNotes, setSelectedNotes] = useState<string[]>([]);
-  useEffect(() => {
+  const loadStorage = () => {
     setNoteStorage(NoteStorage.getNotes());
+  };
+  useEffect(() => {
+    loadStorage();
   }, []);
   const removeNote = (noteId: number) => {
     NoteStorage.removeNote(noteId);
-    setNoteStorage(NoteStorage.getNotes());
+    loadStorage();
   };
   return (
     <div>
@@ -39,7 +42,8 @@ function App() {
               />
             )}
           />
-          <Route path="/:id" element={<NotePage />} />
+          <Route path="/:id" element={<NotePage loadStorage={loadStorage} />} />
+          <Route path="/new" element={<NotePage loadStorage={loadStorage} />} />
         </Routes>
       </div>
     </div>
