@@ -1,5 +1,3 @@
-/* eslint-disable linebreak-style */
-
 import React from 'react';
 import Button from '../button/Button';
 import ButtonLink from '../link/Link';
