@@ -14,21 +14,23 @@ export default function Sidebar({
 }: ISidebarProps) {
   return (
     <aside className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-      {tags.map((tag) => (
-        <Tag
-          key={tag}
-          onClick={() => {
-            if (selectedNotes.includes(tag)) {
-              setSelectedNotes(selectedNotes.filter((item) => item !== tag));
-            } else {
-              setSelectedNotes([...selectedNotes, tag]);
-            }
-          }}
-          isSelected={selectedNotes.includes(tag)}
-        >
-          {tag}
-        </Tag>
-      ))}
+      <div className="sidebar__tags-container">
+        {tags.map((tag) => (
+          <Tag
+            key={tag}
+            onClick={() => {
+              if (selectedNotes.includes(tag)) {
+                setSelectedNotes(selectedNotes.filter((item) => item !== tag));
+              } else {
+                setSelectedNotes([...selectedNotes, tag]);
+              }
+            }}
+            isSelected={selectedNotes.includes(tag)}
+          >
+            {tag}
+          </Tag>
+        ))}
+      </div>
       <div className="sidebar__clean-button-container">
         <Button
           onClick={() => {

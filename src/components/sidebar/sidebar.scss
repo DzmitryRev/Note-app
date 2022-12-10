@@ -15,6 +15,10 @@
     &__clean-button-container {
         padding-top: 20px;
     }
+    &__tags-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 
 .open {
