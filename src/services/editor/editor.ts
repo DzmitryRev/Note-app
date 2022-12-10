@@ -2,7 +2,9 @@ export function replaceTag(data: string): string {
   return data.replace(/#\S+/gi, '<b style="color: #3523f3">$&</b>');
 }
 export function getTags(data: string) {
-  return data.match(/#\S+/gi) || [];
+  const matches = data.match(/#\S+/gi);
+  const result = new Set(matches || []);
+  return Array.from(result);
 }
 
 export function getCaretPosition(contentEditable: Node): number {
