@@ -1,4 +1,3 @@
-import React from 'react';
 import Note from '../../components/note/Note';
 import { INote } from '../../models/NoteModel';
 

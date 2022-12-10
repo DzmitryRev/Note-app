@@ -24,6 +24,9 @@
     ],
     "react/react-in-jsx-scope": "off",
     "no-nested-ternary": "off",
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "no-plusplus": "off",
+    "prefer-destructuring": "off",
+    "react/jsx-props-no-spreading": "off"
   }
 }

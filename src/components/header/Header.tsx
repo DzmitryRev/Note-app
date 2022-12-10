@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Burger from '../burger/Burger';
 import Button from '../button/Button';
 import ButtonLink from '../link/Link';

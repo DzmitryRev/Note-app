@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import { PropsWithChildren } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import '../button/button.scss';
 

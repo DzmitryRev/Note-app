@@ -70,6 +70,7 @@ export default class NoteStorage {
       }),
       tags: notes.tags,
     };
+
     newStorage.tags = this.updateTags(newStorage);
     tags.forEach((tag) => {
       if (!newStorage.tags.includes(tag)) {

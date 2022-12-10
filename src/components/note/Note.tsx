@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../button/Button';
 import ButtonLink from '../link/Link';
 import Tag from '../tag/Tag';

@@ -1,4 +1,3 @@
-import React from 'react';
 import './burger.scss';
 
 export default function Burger() {

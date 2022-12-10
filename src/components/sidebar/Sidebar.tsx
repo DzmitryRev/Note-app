@@ -1,4 +1,3 @@
-import React from 'react';
 import Button from '../button/Button';
 import Tag from '../tag/Tag';
 import './sidebar.scss';

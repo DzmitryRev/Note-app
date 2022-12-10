@@ -1,12 +1,12 @@
-/* eslint-disable react/no-danger */
-import React, { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import Button from '../../components/button/Button';
+import Editor from '../../components/editor/Editor';
 import ButtonLink from '../../components/link/Link';
-import { getTags, replaceTag } from '../../services/replace/replace';
-import { setSelection } from '../../services/selection/selection';
+import { getTags } from '../../services/editor/editor';
 import NoteStorage from '../../storage/NoteStorage';
+
 import './notepage.scss';
 
 interface INotePageProps {
@@ -19,8 +19,7 @@ export default function NotePage({ loadStorage }: INotePageProps) {
   const navigate = useNavigate();
   const isEditMode = location.pathname !== '/new';
 
-  const [inputValue, setInputValue] = React.useState('');
-  const titleRef = React.useRef<HTMLDivElement>();
+  const [inputValue, setInputValue] = useState('');
 
   useEffect(() => {
     if (isEditMode && id) {
@@ -31,34 +30,23 @@ export default function NotePage({ loadStorage }: INotePageProps) {
     }
   }, []);
 
-  useEffect(() => {
-    setSelection(titleRef);
-  }, [inputValue]);
-
   return (
     <div className="form">
       <div className="form__title-container">
         <ButtonLink to="/">back</ButtonLink>
         <h2 className="form__title">{isEditMode ? 'Edit note' : 'Add new note'}</h2>
       </div>
-      <div
-        className="form__description-input"
-        ref={titleRef as React.RefObject<HTMLDivElement>}
-        contentEditable
-        onInput={(e) => {
-          setInputValue(e.currentTarget.innerText);
-        }}
-        dangerouslySetInnerHTML={{ __html: replaceTag(inputValue).join(' ') }}
-      />
+      <Editor value={inputValue} setValue={setInputValue} />
       <div>
         <Button
           onClick={() => {
             if (isEditMode && id) {
-              NoteStorage.updateNote({
-                id: uuidv4(),
+              const newNote = {
+                id,
                 description: inputValue,
                 tags: [...getTags(inputValue)],
-              });
+              };
+              NoteStorage.updateNote(newNote);
               loadStorage();
               navigate('/');
             } else {

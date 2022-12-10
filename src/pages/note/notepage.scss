@@ -4,14 +4,43 @@
     max-width: 600px;
     margin: 0 auto;
     padding-top: 40px;
-    &__description-input {
+    &__description-fake-input {
         background: #fff;
         font-size: 18px;
+        line-height: 22px;
         border-radius: 10px;
         margin-bottom: 20px;
         height: 300px;
-        padding: 5px;
-        overflow-y: scroll;
+        padding: 6px;
+        position: relative;
+        word-wrap: break-word;
+        overflow: scroll;
+         &::-webkit-scrollbar {
+            width: 0;
+        }
+        &::-webkit-scrollbar {
+            width: 0;
+        }
+    }
+    &__description-input {
+        color: rgba(23, 17, 17, 0);
+        caret-color: rgba(15, 11, 11, 1);
+        display: block;
+        position: absolute;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: 22px;
+        resize: none;
+        padding: inherit;
+        overflow: hidden;
+        padding-bottom: 0;
     }
     &__title-container {
         display: flex;
@@ -22,4 +51,13 @@
     &__title {
         color: #fff;
     }
+}
+
+.test {
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
